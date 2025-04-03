@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stres Atma Oyunu</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            margin: 0;
+            color: white;
+            font-size: 2rem;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            position: relative;
+        }
+        .bag {
+            width: 80vw;
+            max-width: 400px;
+            transition: transform 0.1s ease;
+            cursor: pointer;
+        }
+        .counter {
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter">Yumruk Sayısı: <span id="punchCount">0</span></div>
+    <div class="container">
+        <img id="punchingBag" class="bag" src="bokstorba.png" alt="Boks Torbası">
+    </div>
+
+    <script>
+        let count = 0;
+        const bag = document.getElementById("punchingBag");
+        const counter = document.getElementById("punchCount");
+        
+        bag.addEventListener("click", () => {
+            count++;
+            counter.textContent = count;
+            bag.style.transform = "translateX(20px)";
+            setTimeout(() => {
+                bag.style.transform = "translateX(0)";
+            }, 100);
+        });
+    </script>
+</body>
+</html>
